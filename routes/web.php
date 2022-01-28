@@ -14,8 +14,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/dashboard', function () {
+    return view('index');
+});
+
 Route::get('/', function () {
-    return view('404');
+    return view('login');
+});
+Route::get('/clients', function () {
+    return view('layouts.clients');
+});
+Route::get('/clientBills', function () {
+    return view('client-bills');
+});
+Route::get('/admin', function () {
+    return view('admin-management');
+});
+Route::get('/editclientrecords', function () {
+    return view('edit-client-records');
 });
 
 Route::group(['middleware' => 'guest'], function () {
