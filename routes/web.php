@@ -59,5 +59,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admins', [AdminManagementController::class, 'index'])->name('admins.index');
     Route::delete('/admins/{user}', [AdminManagementController::class, 'destroy'])->name('admins.destroy');
     Route::post('/admins', [AdminManagementController::class, 'store'])->name('admins.store');
+
 });
 

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
     public function index() {
-        return view('auth.login');
+        return view('login');
     }
 
 

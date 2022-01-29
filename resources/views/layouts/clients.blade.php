@@ -49,7 +49,11 @@
                                         <th class="text-center">{{ $client->meter_number }}</th>
                                         <th>{{ $client->status == 0 ? 'Pending' : 'Verified' }}</th>
                                         <th>
-                                            <button class="edit"><i class="fas fa-edit"></i></button>
+                                            <button type="button" class="edit" data-bs-toggle="modal"
+                                            data-bs-target="#editModal">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                            {{-- <button class="edit"><i class="fas fa-edit"></i></button> --}}
                                             <form action="{{ route('clients.destroy', ['client' => $client]) }}"
                                                 method="POST">
                                                 @csrf
@@ -113,6 +117,48 @@
                             <input class="form-control" name="meter_reading" placeholder="First Meter Reading" required>
                         </div>
 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- Edit Modal --}}
+      <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit</h5>
+                    <button type="button" class="closing"><i class="fas fa-times"></i></button>
+                </div>
+                <form action="{{ route('clients.store') }}" method="POST">
+                    @csrf
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                           <span> {{ $client->first_name }} <span>{{ $client->middle_name }}</span>
+                            <span>{{ $client->last_name }}</span></span>
+                            <button class="edit-text" type="submit"><label for="#" class="label-text">edit</label></button>
+                        </div>
+                        <div class="form-group">
+                            <span>{{ $client->address }}</span>
+                            <button class="edit-text" type="submit"><label for="#" class="label-text">edit</label></button>
+                        </div>
+                        <div class="form-group">
+                            <span>{{ $client->contact_number }}</span>
+                            <button class="edit-text" type="submit"><label for="#" class="label-text">edit</label></button>
+                        </div>
+                        <div class="form-group">
+                           <span>{{ $client->meter_number }}</span>
+                           <button class="edit-text" type="submit"><label for="#" class="label-text">edit</label></button>
+                        </div>
+                        <div class="form-group">
+                          <span>{{ $client->status == 0 ? 'Pending' : 'Verified' }}</span>
+                          <button class="edit-text" type="submit"><label for="#" class="label-text">edit</label></button>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

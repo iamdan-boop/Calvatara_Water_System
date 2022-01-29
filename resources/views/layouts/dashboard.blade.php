@@ -23,7 +23,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item py-3">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('dashboard.index')  }}">
                     <i class="fas fa-home"></i>
                     <span>Dashboard</span>
                 </a>
@@ -70,7 +70,8 @@
             <li class="nav-item py-1">
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-envelope-open-text"></i>
-                    <span>Push Notification</span></a>
+                    <span>Push Notification</span>
+                    <span class="badge badge-danger badge-counter">7</span></a>
             </li>
             <li class="nav-item py-1">
                 <a class="nav-link" href="{{ route('admins.index') }}">

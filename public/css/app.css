@@ -27,7 +27,9 @@
 }
 
 .delete {
+    margin-top: 2px;
     background-color: orangered;
+    padding: 1px 8px 1px;
     color: white ;
     border: none;
     border-radius: 2px;
@@ -45,9 +47,6 @@
 .bills-con {
     text-align: center;
 }
-.colum {
-    margin:  0 20% 0;
-}
 .bills-con .bills {
     text-align: center;
 }
@@ -58,11 +57,43 @@
     outline: none;
     border-radius: 2px;
 }
+.bill-money:hover {
+    background-color: rgb(131, 131, 36);
+    color: rgb(202, 200, 200);
+}
 .eye {
     background-color: #78a0f8;
     color: white;
     border: none;
     outline: none;
     border-radius: 2px;
-
+}
+.eye:hover {
+    background-color: #385ba8;
+    color: rgb(202, 200, 200);
+}
+.edit-text {
+    padding: 0;
+    float: right;
+    border: none;
+}
+.label-text{
+    color: #2e59d9;
+    cursor: pointer;
+}
+.label-text:hover {
+    border-bottom: 1px solid #2e59d9;
+}
+.btn {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,
+    border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.leg {
+    text-transform: none;
 }
