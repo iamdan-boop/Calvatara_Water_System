@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminManagementController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ClientBillsController;
+use App\Http\Controllers\ClientsController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,25 +18,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/dashboard', function () {
-    return view('index');
-});
+// Route::get('/dashboard', function () {
+//     return view('index');
+// });
 
-Route::get('/', function () {
-    return view('login');
-});
-Route::get('/clients', function () {
-    return view('layouts.clients');
-});
-Route::get('/clientBills', function () {
-    return view('client-bills');
-});
-Route::get('/admin', function () {
-    return view('admin-management');
-});
-Route::get('/editclientrecords', function () {
-    return view('edit-client-records');
-});
+// Route::get('/', function () {
+//     return view('login');
+// });
+// Route::get('/clients', function () {
+//     return view('layouts.clients');
+// });
+// Route::get('/clientBills', function () {
+//     return view('client-bills');
+// });
+// Route::get('/admin', function () {
+//     return view('admin-management');
+// });
+// Route::get('/editclientrecords', function () {
+//     return view('edit-client-records');
+// });
+
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login.index');
@@ -41,5 +46,18 @@ Route::group(['middleware' => 'guest'], function () {
 
 
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/client-bills', [ClientBillsController::class, 'index'])->name('clientbills.index');
 
+
+    Route::get('/clients', [ClientsController::class, 'index'])->name('clients.index');
+    Route::post('/clients', [ClientsController::class, 'store'])->name('clients.store');
+    Route::delete('/clients/{client}', [ClientsController::class, 'destroy'])->name('clients.destroy');
+
+
+    Route::get('/admins', [AdminManagementController::class, 'index'])->name('admins.index');
+    Route::delete('/admins/{user}', [AdminManagementController::class, 'destroy'])->name('admins.destroy');
+    Route::post('/admins', [AdminManagementController::class, 'store'])->name('admins.store');
+});
 

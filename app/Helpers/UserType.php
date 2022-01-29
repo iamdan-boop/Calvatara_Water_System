@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Helpers;
+
 use Illuminate\Validation\Rules\Enum;
 
 final class UserType extends Enum {
