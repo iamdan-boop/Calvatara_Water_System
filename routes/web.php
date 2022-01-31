@@ -37,11 +37,24 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/editclientrecords', function () {
 //     return view('edit-client-records');
 // });
-
-
+Route::get('/client-edit', function () {
+    return view('client-edit');
+});
+Route::get('/admin-edit', function () {
+    return view('admin-edit');
+});
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login.index');
     Route::post('/login', [LoginController::class, 'store'])->name('login.store');
+});
+Route::get('/clientBillingrecords', function () {
+    return view('client-billing-records');
+});
+Route::get('/reports', function () {
+    return view('reports');
+});
+Route::get('/calculation', function () {
+    return view('calculation');
 });
 
 

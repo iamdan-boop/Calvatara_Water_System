@@ -34,6 +34,7 @@
                                     <th scope="col">Contact</th>
                                     <th scope="col">Date Added</th>
                                     <th scope="col">Meter Number</th>
+                                    <th scope="col">StubOut-Number</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>`
                                 </tr>
@@ -47,12 +48,12 @@
                                         <th>{{ $client->contact_number }}</th>
                                         <th>{{ $client->created_at }}</th>
                                         <th class="text-center">{{ $client->meter_number }}</th>
+                                        <th class="text-center">{{ $client->meter_number }}</th>
                                         <th>{{ $client->status == 0 ? 'Pending' : 'Verified' }}</th>
                                         <th>
-                                            <button type="button" class="edit" data-bs-toggle="modal"
-                                            data-bs-target="#editModal">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
+                                            <button type="button" class="edit">
+                                                <a class="btn-edit" href="client-edit"><i class="fas fa-edit"></i></a>
+                                            </button>
                                             {{-- <button class="edit"><i class="fas fa-edit"></i></button> --}}
                                             <form action="{{ route('clients.destroy', ['client' => $client]) }}"
                                                 method="POST">
@@ -86,84 +87,75 @@
                     <div class="modal-body">
 
                         <div class="form-group">
-                            <label>First Name</label>
-                            <input class="form-control" name="first_name" placeholder="firstname" required>
+                            <label><h6>First Name</h6></label>
+                            <input class="form-control" name="first_name" placeholder="Firstname" required>
                         </div>
                         <div class="form-group">
-                            <label>Middle Name</label>
+                            <label><h6>Middle Initial</h6></label>
                             <input class="form-control" name="middle_name" placeholder="Middle name" required>
                         </div>
                         <div class="form-group">
-                            <label>Last Name</label>
+                            <label><h6>Last Name</h6></label>
                             <input class="form-control" name="last_name" placeholder="Lastname" required>
                         </div>
                         <div class="form-group">
-                            <label>Address</label>
+                            <label><h6>Address</h6></label>
                             <input class="form-control" name="address" placeholder="Address" required>
                         </div>
                         <div class="form-group">
-                            <label>Contact</label>
+                            <label><h6>Contact</h6></label>
                             <input class="form-control" name="contact_number" placeholder="Contact" required>
                         </div>
                         <div class="form-group">
                             <h4 class="modal-title">Required <span class="text-danger">*</span></h4>
                         </div>
                         <div class="form-group">
-                            <label>Meter Number</label>
+                            <label><h6>Type</h6></label>
+                                <select class="form-select form-control" aria-label="Default select example">
+                                    <option selected>Open this select Type</option>
+                                    <option value="1">Commercial</option>
+                                    <option value="2">Residential</option>
+                                  </select>
+                        </div>
+                        <div class="form-group">
+                            <label><h6>Route</h6></label>
+                                <select class="form-select form-control" aria-label="Default select example">
+                                    <option selected>Open this select Route</option>
+                                    <option value="1">San Isidro</option>
+                                    <option value="2">Patun-An</option>
+                                    <option value="2">Bantayanon</option>
+                                    <option value="2">Lo-ok</option>
+                                    <option value="2">Calampisawan</option>
+                                    <option value="2">Suba</option>
+                                  </select>
+                        </div>
+                        <div class="form-group">
+                            <label><h6>Status</h6></label>
+                                <select class="form-select form-control" aria-label="Default select example">
+                                    <option selected>Open this select Status</option>
+                                    <option value="1">Active</option>
+                                    <option value="2">Disconnected</option>
+                                  </select>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <label><h6>StubOut-Number</h6></label>
+                            <input class="form-control" name="meter_number" placeholder="StubOut-Number" required>
+                        </div>
+                        <div class="form-group">
+                            <label><h6>Meter Number</h6></label>
                             <input class="form-control" name="meter_number" placeholder="Meter Number" required>
                         </div>
                         <div class="form-group">
-                            <label>First Meter Reading</label>
+                            <label><h6>First Meter Reading</h6></label>
                             <input class="form-control" name="meter_reading" placeholder="First Meter Reading" required>
                         </div>
 
-                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- Edit Modal --}}
-      <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Edit</h5>
-                    <button type="button" class="closing"><i class="fas fa-times"></i></button>
                 </div>
-                <form action="{{ route('clients.store') }}" method="POST">
-                    @csrf
-                    <div class="modal-body">
-
-                        <div class="form-group">
-                           <span> {{ $client->first_name }} <span>{{ $client->middle_name }}</span>
-                            <span>{{ $client->last_name }}</span></span>
-                            <button class="edit-text" type="submit"><label for="#" class="label-text">edit</label></button>
-                        </div>
-                        <div class="form-group">
-                            <span>{{ $client->address }}</span>
-                            <button class="edit-text" type="submit"><label for="#" class="label-text">edit</label></button>
-                        </div>
-                        <div class="form-group">
-                            <span>{{ $client->contact_number }}</span>
-                            <button class="edit-text" type="submit"><label for="#" class="label-text">edit</label></button>
-                        </div>
-                        <div class="form-group">
-                           <span>{{ $client->meter_number }}</span>
-                           <button class="edit-text" type="submit"><label for="#" class="label-text">edit</label></button>
-                        </div>
-                        <div class="form-group">
-                          <span>{{ $client->status == 0 ? 'Pending' : 'Verified' }}</span>
-                          <button class="edit-text" type="submit"><label for="#" class="label-text">edit</label></button>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
                 </form>
             </div>
         </div>

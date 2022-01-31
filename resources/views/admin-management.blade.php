@@ -27,7 +27,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" class="px-5">ID</th>
-                                        <th scope="col" class="px-5">Username</th>
+                                        <th scope="col" class="px-5">Name</th>
                                         <th scope="col" class="px-5">Email</th>
                                         <th scope="col" class="px-5">User Type</th>
                                         {{-- <th scope="col" class="px-5">Password</th> --}}
@@ -43,9 +43,8 @@
                                             {{-- <th>{{ $admin->password }}</th> --}}
                                             <th>Admin</th>
                                             <th>
-                                                <button type="button" class="edit" data-bs-toggle="modal"
-                                            data-bs-target="#adminModal">
-                                            <i class="fas fa-edit"></i>
+                                                <button type="button" class="edit">
+                                            <a class="btn-edit" href="admin-edit"><i class="fas fa-edit"></i></a>
                                         </button>
                                                 <form action="{{ route('admins.destroy', ['user' => $admin->id]) }}"
                                                     method="POST">
@@ -108,38 +107,8 @@
                             </div>
                         </div>
                     </div>
-
-                      {{-- Admin Modal --}}
-
-      <div class="modal fade" id="adminModal" tabindex="-1" aria-labelledby="adminModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="adminModalLabel">Edit</h5>
-                    <button type="button" class="closing"><i class="fas fa-times"></i></button>
                 </div>
-                <form action="{{ route('admins.store') }}" method="POST">
-                    @csrf
-                    <div class="modal-body">
-
-                        <div class="form-group">
-                           <span> {{ $admin->id }}</span>
-                            <button class="edit-text" type="submit"><label for="#" class="label-text">edit</label></button>
-                        </div>
-                        <div class="form-group">
-                            <span>{{ $admin->name }}</span>
-                            <button class="edit-text" type="submit"><label for="#" class="label-text">edit</label></button>
-                        </div>
-                        <div class="form-group">
-                            <span>{{ $admin->email }}</span>
-                            <button class="edit-text" type="submit"><label for="#" class="label-text">edit</label></button>
-                        </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
-                </form>
             </div>
-        </div>
+        </section>
     </div>
                 @endsection

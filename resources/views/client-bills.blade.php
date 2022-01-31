@@ -8,7 +8,9 @@
                 Client Bills
             </h1>
         </section>
-
+        <nav class="nav-item color">
+            <input type="text" class="sear bg-light border-0 small" placeholder="Filter Search"
+            aria-label="Search" aria-describedby="basic-addon2">
         <!-- Main content -->
         <section class="content">
             <div class="row">
@@ -38,8 +40,8 @@
                                             <th class="text-center"> {{ $client->meter_number }} </th>
                                             <th>{{ $client->number }}</th>
                                             <th class="money-bills">
-                                                <button class="bill-money"><i class="fas fa-money-bill"></i> </button>
-                                                <button class="eye"><i class="fas fa-eye"></i></button>
+                                                <button class="eye"><a href="#"><i class="fas fa-eye"></a></i></button>
+                                                <button class="bill-money"><a href="clientBillingrecords"><i class="fas fa-money-bill"></i></a></button>
                                             </th>
                                         </tr>
                                     @endforeach
