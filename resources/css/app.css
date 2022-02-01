@@ -155,9 +155,7 @@
     outline: none;
 }
 .super {
-    font-size: 11px;
-    color: black;
-    border: 1px solid black;
+    text-align: center;
 }
 .black {
     color: black;
