@@ -130,7 +130,7 @@
                     <th scope="col">
                         <button class="bill-wave" type="button" wire:click="updateBill({{ $bill->id }})"><i
                                 class="fas fa-money-bill-wave"></i></button>
-                        <button class="print"><i class="fas fa-print"></i></button>
+                        <button class="print" type="button" wire:click="printBill({{ $bill->id }})"><i class="fas fa-print"></i></button>
                         <button class="delete" type="button" wire:click="deleteBill({{ $bill->id }})"><i
                                 class="fas fa-trash"></i></button>
                     </th>

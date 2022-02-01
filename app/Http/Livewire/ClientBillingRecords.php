@@ -4,7 +4,8 @@ namespace App\Http\Livewire;
 
 use App\Models\Bills;
 use App\Models\Client;
-use Barryvdh\DomPDF\Facade\Pdf;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use Barryvdh\DomPDF\PDF;
 use Livewire\Component;
 
 class ClientBillingRecords extends Component
@@ -55,7 +56,7 @@ class ClientBillingRecords extends Component
     public function printBill($billId) {
         $bill = Bills::find($billId);
 
-        $pdf = Pdf::loadView('pdf', $bill);
-        return $pdf->download($bill->created_at);
+        $pdf = FacadePdf::loadView('pdf', ['bill' => $bill]);
+        return $pdf->download('new.pdf');
     }
 } 
