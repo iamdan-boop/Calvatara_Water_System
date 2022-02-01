@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminManagementController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CalculateBillingController;
 use App\Http\Controllers\ClientBillsController;
 use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\DashboardController;
@@ -32,9 +33,9 @@ Route::get('/clientBillingrecords', function () {
 Route::get('/reports', function () {
     return view('reports');
 });
-Route::get('/calculation', function () {
-    return view('calculation');
-});
+// Route::get('/calculation', function () {
+//     return view('calculation');
+// });
 
 
 Route::get('/client-edit', function () {
@@ -48,8 +49,9 @@ Route::get('/admin-edit', function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('/client-bills', [ClientBillsController::class, 'index'])->name('clientbills.index');
+    Route::get('/client/show/{client}', [ClientBillsController::class, 'show'])->name('clientbills.show');
 
-
+    Route::get('/calculate/{client}', [CalculateBillingController::class, 'show'])->name('calculate.show');
     Route::resource('/clients', ClientsController::class);
 
 

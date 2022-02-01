@@ -12,4 +12,9 @@ class ClientBillsController extends Controller
         $clients = Client::orderBy('first_name', 'asc')->paginate(10);
         return view('client-bills', compact('clients'));
     }
+
+
+    public function show(Client $client) {
+        return view('client-billing-records', compact('client'));
+    }
 }

@@ -20,10 +20,12 @@
     <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="https://kit.fontawesome.com/5e81b262d9.js" crossorigin="anonymous"></script>
+    @livewireStyles
 </head>
 
 <body id="page-top">
     @yield('content')
+    @livewireScripts
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
     </script>
