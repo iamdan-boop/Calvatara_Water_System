@@ -49,17 +49,17 @@
                                         <th>{{ $client->created_at }}</th>
                                         <th class="text-center">{{ $client->meter_number }}</th>
                                         <th class="text-center">{{ $client->meter_number }}</th>
-                                        <th>{{ $client->status == 0 ? 'Pending' : 'Verified' }}</th>
+                                        <th>{{ $client->status == 0 ? 'Disconnected' : 'Active' }}</th>
                                         <th>
                                             <button type="button" class="edit">
-                                                <a class="btn-edit" href="client-edit"><i class="fas fa-edit"></i></a>
+                                                <a class="btn-edit" href="{{ route('clients.edit', ['client' => $client->id,])}}"><i class="fas fa-edit"></i></a>
                                             </button>
                                             {{-- <button class="edit"><i class="fas fa-edit"></i></button> --}}
-                                            <form action="{{ route('clients.destroy', ['client' => $client]) }}"
+                                            <form action="{{ route('clients.destroy', ['client' => $client->id]) }}"
                                                 method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="delete"><i class="fas fa-trash"></i></button>
+                                                <button type="submit" class="delete"><i class="fas fa-trash"></i></button>
                                             </form>
                                         </th>
                                     </tr>
@@ -111,36 +111,36 @@
                         </div>
                         <div class="form-group">
                             <label><h6>Type</h6></label>
-                                <select class="form-select form-control" aria-label="Default select example">
+                                <select class="form-select form-control" aria-label="Default select example" name="type">
                                     <option selected>Open this select Type</option>
-                                    <option value="1">Commercial</option>
-                                    <option value="2">Residential</option>
+                                    <option value="0">Commercial</option>
+                                    <option value="1">Residential</option>
                                   </select>
                         </div>
                         <div class="form-group">
                             <label><h6>Route</h6></label>
-                                <select class="form-select form-control" aria-label="Default select example">
+                                <select class="form-select form-control" aria-label="Default select example" name="route">
                                     <option selected>Open this select Route</option>
-                                    <option value="1">San Isidro</option>
-                                    <option value="2">Patun-An</option>
-                                    <option value="2">Bantayanon</option>
-                                    <option value="2">Lo-ok</option>
-                                    <option value="2">Calampisawan</option>
-                                    <option value="2">Suba</option>
+                                    <option value="San Isidro">San Isidro</option>
+                                    <option value="Patun-An">Patun-An</option>
+                                    <option value="Bantayanon">Bantayanon</option>
+                                    <option value="Lo-ok">Lo-ok</option>
+                                    <option value="Calampisawan">Calampisawan</option>
+                                    <option value="Suba">Suba</option>
                                   </select>
                         </div>
                         <div class="form-group">
                             <label><h6>Status</h6></label>
-                                <select class="form-select form-control" aria-label="Default select example">
+                                <select class="form-select form-control" aria-label="Default select example" name="status">
                                     <option selected>Open this select Status</option>
-                                    <option value="1">Active</option>
-                                    <option value="2">Disconnected</option>
+                                    <option value="0">Active</option>
+                                    <option value="1">Disconnected</option>
                                   </select>
                         </div>
                         </div>
                         <div class="form-group">
                             <label><h6>StubOut-Number</h6></label>
-                            <input class="form-control" name="meter_number" placeholder="StubOut-Number" required>
+                            <input class="form-control" name="stub_number" placeholder="StubOut-Number" required>
                         </div>
                         <div class="form-group">
                             <label><h6>Meter Number</h6></label>
@@ -148,7 +148,7 @@
                         </div>
                         <div class="form-group">
                             <label><h6>First Meter Reading</h6></label>
-                            <input class="form-control" name="meter_reading" placeholder="First Meter Reading" required>
+                            <input class="form-control" name="first_meter_reading" placeholder="First Meter Reading" required>
                         </div>
 
                     <div class="modal-footer">

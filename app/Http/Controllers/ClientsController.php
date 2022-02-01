@@ -17,13 +17,33 @@ class ClientsController extends Controller
 
 
     public function store(CreateClientRequest $request) {
-        Client::create($request->validated() + ['status' => 0]);
+        Client::create($request->validated());
         return back();
     }
 
 
-    public function destroy(Client $user) {
-        $user->delete();
+    public function edit(Client $client) {
+        return view('client-edit', compact('client'));
+    }
+
+    public function update(Request $request, Client $client) {
+        // dd($request);
+        $request->validate([
+            'first_name' => 'required|string',
+            'middle_name' => 'required|string',
+            'last_name' => 'required|string',
+            'address' => 'required|string',
+            'contact_number' => 'required|string',
+            'meter_number' => 'required|numeric',
+            'status' => 'required',
+        ]);
+        $client->update($request->all());
+        return back();
+    }
+
+
+    public function destroy(Client $client) {
+        $client->delete();
         return back();
     }
 }
