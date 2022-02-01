@@ -95,6 +95,9 @@
                                                 <input class="form-control" name="password_confirmation" placeholder="ReType Password"
                                                     required>
                                             </div>
+                                            <div class="form-group">
+                                                <button class="upld">Upload Picture Here</button>
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
