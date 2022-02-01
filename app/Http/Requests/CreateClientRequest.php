@@ -29,8 +29,12 @@ class CreateClientRequest extends FormRequest
             'last_name' => 'required|string',
             'address' => 'required|string',
             'contact_number' => 'required|string',
+            'type' => 'required|in:0,1',
+            'route' => 'required|in:San Isidro,Patun-An,Bantayanon,Lo-ok,Calampisawan,Suba',
+            'status' => 'required|in:0,1',
+            'stub_number' => 'required|numeric',
             'meter_number' => 'required|numeric',
-            'meter_reading' => 'required|string'
+            'first_meter_reading' => 'required|string'
         ]; 
     }
 }

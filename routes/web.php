@@ -18,35 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/dashboard', function () {
-//     return view('index');
-// });
+Route::redirect('/', '/login');
 
-// Route::get('/', function () {
-//     return view('login');
-// });
-// Route::get('/clients', function () {
-//     return view('layouts.clients');
-// });
-// Route::get('/clientBills', function () {
-//     return view('client-bills');
-// });
-// Route::get('/admin', function () {
-//     return view('admin-management');
-// });
-// Route::get('/editclientrecords', function () {
-//     return view('edit-client-records');
-// });
-Route::get('/client-edit', function () {
-    return view('client-edit');
-});
-Route::get('/admin-edit', function () {
-    return view('admin-edit');
-});
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login.index');
     Route::post('/login', [LoginController::class, 'store'])->name('login.store');
 });
+
+
 Route::get('/clientBillingrecords', function () {
     return view('client-billing-records');
 });
@@ -58,15 +37,20 @@ Route::get('/calculation', function () {
 });
 
 
+Route::get('/client-edit', function () {
+    return view('client-edit');
+});
+Route::get('/admin-edit', function () {
+    return view('admin-edit');
+});
+
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('/client-bills', [ClientBillsController::class, 'index'])->name('clientbills.index');
 
 
-    Route::get('/clients', [ClientsController::class, 'index'])->name('clients.index');
-    Route::post('/clients', [ClientsController::class, 'store'])->name('clients.store');
-    Route::delete('/clients/{client}', [ClientsController::class, 'destroy'])->name('clients.destroy');
+    Route::resource('/clients', ClientsController::class);
 
 
     Route::get('/admins', [AdminManagementController::class, 'index'])->name('admins.index');
