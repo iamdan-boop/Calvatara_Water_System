@@ -85,7 +85,7 @@
                 </li>
                 <nav class="nav-item color">
                     <input type="text" class="form-control bg-light  small searc" placeholder="Search for..."
-                        aria-label="Search" aria-describedby="basic-addon2">
+                        wire:model="search" aria-label="Search" aria-describedby="basic-addon2">
                 </nav>
             </ul>
         </nav>
@@ -95,16 +95,7 @@
         <thead>
             <tr>
                 <th scope="col">
-                    <p>Present Reading</p>
-                </th>
-                <th scope="col">
-                    <p>Previous Reading</p>
-                </th>
-                <th scope="col">
                     <p>Consumption</p>
-                </th>
-                <th scope="col">
-                    <p>Price</p>
                 </th>
                 <th scope="col">
                     <p>Date</p>
@@ -113,36 +104,39 @@
                     <p>Bill Amount</p>
                 </th>
                 <th scope="col">
+                    <p>Status</p>
+                </th>
+                <th scope="col">
                     <p>Tools</p>
                 </th>`
             </tr>
         </thead>
         <tbody>
-            <tr class="align">
-                <th scope="col">
-                    <p>1</p>
-                </th>
-                <th scope="col">
-                    <p>20</p>
-                </th>
-                <th scope="col">
-                    <p>19</p>
-                </th>
-                <th scope="col">
-                    <p>190</p>
-                </th>
-                <th scope="col">
-                    <p>Feb 3, 2022</p>
-                </th>
-                <th scope="col">
-                    <p>3,600.00</p>
-                </th>
-                <th scope="col">
-                    <button class="bill-wave"><i class="fas fa-money-bill-wave"></i></button>
-                    <button class="print"><i class="fas fa-print"></i></button>
-                    <button class="delete"><i class="fas fa-trash"></i></button>
-                </th>
-            </tr>
+            @foreach ($bills as $bill)
+
+                <tr class="align">
+                    <th scope="col">
+                        <p>{{ $bill->cubic_meter }}</p>
+                    </th>
+                    <th scope="col">
+                        <p>{{ $bill->created_at }}</p>
+                    </th>
+                    <th scope="col">
+                        <p>{{ $bill->bill_amount }}</p>
+                    </th>
+                    <th scope="col">
+                        <p>{{ $bill->status == 0 ? 'Unpaid' : 'Paid' }}</p>
+                    </th>
+                    <th scope="col">
+                        <button class="bill-wave" type="button" wire:click="updateBill({{ $bill->id }})"><i
+                                class="fas fa-money-bill-wave"></i></button>
+                        <button class="print"><i class="fas fa-print"></i></button>
+                        <button class="delete" type="button" wire:click="deleteBill({{ $bill->id }})"><i
+                                class="fas fa-trash"></i></button>
+                    </th>
+
+                </tr>
+            @endforeach
         </tbody>
 </div>
 </div>

@@ -32,6 +32,7 @@
                 <input type="text" class="form-control bg-light  small searc" placeholder="Present Reading..."
                     id="current_reading_input" aria-label="Search" aria-describedby="basic-addon2">
             </nav>
+            <h6 class="black" id="total" style="display: none; margin-top: 10px"><strong>Total: </strong></h6>
             <button class="calculate ml-4 mt-3" type="button" id="calculate"><i class="fas fa-money-bill-wave"></i>
                 Calculate</button>
         </div>
@@ -39,41 +40,48 @@
     <script>
         const readingInput = document.getElementById("current_reading_input");
         const calculateButton = document.getElementById("calculate");
+        const totalText = document.getElementById("total");
 
         const json = @json($client);
 
         calculateButton.addEventListener('click', function() {
 
             if (json.type === 0) {
-                return computeResidential(readingInput);
+                return computeResidential(readingInput, totalText);
             }
-            return computeCommercial(readingInput);
+            return computeCommercial(readingInput, totalText);
         });
 
 
-        function computeResidential(readingInput) {
+        function computeResidential(readingInput, total) {
             const x = readingInput.value;
 
             if (x == null || x == '') {
                 return alert('Please input a valid number');
             }
             if (x > 0 && x <= 10) {
-                return readingInput.value = '75';
+                total.style.display = `block`;
+                return total.innerHTML = `5`;
             }
             if (x > 10 && x <= 20) {
-                return readingInput.value = (((x - 10) * 12) + 75).toString();
+                total.style.display = `block`;
+                return total.innerHTML = `${formatDollar((((x - 10) * 12) + 75))}`
             }
             if (x > 20 && x <= 30) {
-                return readingInput.value = (((x - 20) * 13.5) + 195).toString();
+                total.style.display = `block`;
+                return total.innerHTML = `${formatDollar((((x - 20) * 13.5) + 195))}`
             }
             if (x > 30 && x <= 40) {
-                return readingInput.value = (((x - 30) * 15) + 330).toString();
+                total.style.display = `block`;
+                return total.innerHTML = `${formatDollar((((x - 30) * 15) + 330))}`
             }
             if (x > 40 && x <= 50) {
-                return readingInput.value = (((x - 40) * 16.5) + 480).toString();
+                total.style.display = `block`;
+                return total.innerHTML = `${formatDollar((((x - 40) * 16.5) + 480))}`
             }
             if (x > 40) {
-                return readingInput.value = (((x - 40) * 18) + 645).toString();
+                total.style.display = `block`;
+                return total.innerHTML = `${formatDollar((((x - 40) * 18) + 645))}`
             }
         }
 
@@ -85,23 +93,37 @@
                 return alert('Please input a valid number');
             }
             if (x > 0 && x <= 10) {
-                return readingInput.value = '100';
+                total.style.display = `block`;
+                return total.innerHTML = `100`;
             }
             if (x > 10 && x <= 20) {
-                return readingInput.value = (((x - 10) * 15) + 100).toString();
+                total.style.display = `block`;
+                return total.innerHTML = `${formatDollar((((x - 10) * 15) + 100))}`
             }
             if (x > 20 && x <= 30) {
-                return readingInput.value = (((x - 20) * 16.5) + 250).toString();
+                total.style.display = `block`;
+                return total.innerHTML = `${formatDollar((((x - 20) * 16.5) + 250))}`
             }
             if (x > 30 && x <= 40) {
-                return readingInput.value = (((x - 30) * 18) + 415).toString();
+                total.style.display = `block`;
+                return total.innerHTML = `${formatDollar((((x - 30) * 18) + 415))}`
             }
             if (x > 40 && x <= 50) {
-                return readingInput.value = (((x - 40) * 19.5) + 595).toString();
+                total.style.display = `block`;
+                return total.innerHTML = `${formatDollar((((x - 40) * 19.5) + 595))}`
             }
             if (x > 50) {
-                return readingInput.value = (((x - 40) * 21) + 805).toString();
+                total.style.display = 'block';
+                return total.innerHTML = `${(((x - 40) * 21) + 805)}`
             }
+        }
+
+
+        function formatDollar(num) {
+            var p = num.toFixed(2).split(".");
+            return "PHP: " + p[0].split("").reverse().reduce(function(acc, num, i, orig) {
+                return num + (num != "-" && i && !(i % 3) ? "," : "") + acc;
+            }, "") + "." + p[1];
         }
     </script>
 

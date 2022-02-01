@@ -24,4 +24,9 @@ class Client extends Model
         'meter_number',
         'status',
     ];
+
+
+    public function bills() {
+        return $this->hasMany(Bills::class);
+    }
 }
