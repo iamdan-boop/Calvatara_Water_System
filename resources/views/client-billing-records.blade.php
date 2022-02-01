@@ -95,23 +95,19 @@
     <table class="table ml-1">
         <thead>
             <tr>
-                <th scope="col"><p>Present Reading</p></th>
-                <th scope="col"><p>Previous Reading</p></th>
                 <th scope="col"><p>Consumption</p></th>
-                <th scope="col"><p>Price</p></th>
                 <th scope="col"><p>Date</p></th>
                 <th scope="col"><p>Bill Amount</p></th>
-                <th scope="col"><p>Tools</p></th>`
+                <th scope="col"><p>Status</p></th>
+                <th scope="col"><p>Tools</p></th>
             </tr>
         </thead>
         <tbody>
             <tr class="align">
-                <th scope="col"><p>1</p></th>
-                <th scope="col"><p>20</p></th>
                 <th scope="col"><p>19</p></th>
-                <th scope="col"><p>190</p></th>
                 <th scope="col"><p>Feb 3, 2022</p></th>
                 <th scope="col"><p>3,600.00</p></th>
+                <th scope="col"><p>Active</p></th>
                 <th scope="col">   
                     <button class="bill-wave"><i class="fas fa-money-bill-wave"></i></button>
                 <button class="print"><i class="fas fa-print"></i></button>

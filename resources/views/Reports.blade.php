@@ -3,7 +3,7 @@
 @section('dashboard-content')
     
    <section class=" mt-5">
-    <input type="text" class="form-control bg-light border-0 small " placeholder="Search for..."
+    <input type="text" class="form-control bg-light small sear" placeholder="Filter Search"
     aria-label="Search" aria-describedby="basic-addon2">    
     <table class="table">
         <thead>
