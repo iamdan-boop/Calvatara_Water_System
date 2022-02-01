@@ -40,7 +40,7 @@
                                             <th class="text-center"> {{ $client->meter_number }} </th>
                                             <th>{{ $client->number }}</th>
                                             <th class="money-bills">
-                                                <button class="eye"><a href="#"><i class="fas fa-eye"></a></i></button>
+                                                <button class="eye"><a href="calculation"><i class="fas fa-eye"></a></i></button>
                                                 <button class="bill-money"><a href="clientBillingrecords"><i class="fas fa-money-bill"></i></a></button>
                                             </th>
                                         </tr>

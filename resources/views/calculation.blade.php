@@ -22,7 +22,7 @@
     <div>
         <h6 class="black"><strong>Present Reading (cu.m)</strong></h6>
         <nav class="nav-item color mx-3">
-            <input type="text" class="form-control bg-light  small searc" placeholder="Search for..."
+            <input type="text" class="form-control bg-light  small searc" placeholder="Present Reading..."
                         aria-label="Search" aria-describedby="basic-addon2">
         </nav>
         <button class="calculate ml-4 mt-3"><i class="fas fa-money-bill-wave"></i> Calculate</button>

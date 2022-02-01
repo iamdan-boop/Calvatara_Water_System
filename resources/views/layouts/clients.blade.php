@@ -138,15 +138,15 @@
                                   </select>
                         </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group ml-3">
                             <label><h6>StubOut-Number</h6></label>
                             <input class="form-control" name="meter_number" placeholder="StubOut-Number" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group ml-3">
                             <label><h6>Meter Number</h6></label>
                             <input class="form-control" name="meter_number" placeholder="Meter Number" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group ml-3">
                             <label><h6>First Meter Reading</h6></label>
                             <input class="form-control" name="meter_reading" placeholder="First Meter Reading" required>
                         </div>
