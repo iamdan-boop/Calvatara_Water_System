@@ -16,7 +16,7 @@
                     <div class="box box-info">
                         <div class="box-header">
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary ml-5" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-primary ml-5 mb-3" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal">
                                 Add New Admin
                             </button>
@@ -26,12 +26,12 @@
                             <table class="table bills text-center ml-3">
                                 <thead>
                                     <tr>
-                                        <th scope="col" class="px-5">ID</th>
+                                        <th scope="col" class="px-5">S.A Number</th>
                                         <th scope="col" class="px-5">Name</th>
                                         <th scope="col" class="px-5">Email</th>
                                         <th scope="col" class="px-5">User Type</th>
                                         {{-- <th scope="col" class="px-5">Password</th> --}}
-                                        <th scope="col" class="px-5">Action</th>`
+                                        <th scope="col" class="px-5">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
