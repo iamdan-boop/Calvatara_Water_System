@@ -55,7 +55,7 @@ class ClientBillingRecords extends Component
     public function printBill($billId) {
         $bill = Bills::find($billId);
 
-        $pdf = Pdf::loadView('pdf.bills', $bill);
+        $pdf = Pdf::loadView('pdf', $bill);
         return $pdf->download($bill->created_at);
     }
 } 

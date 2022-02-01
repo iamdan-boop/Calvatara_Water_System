@@ -44,6 +44,9 @@ Route::get('/client-edit', function () {
 Route::get('/admin-edit', function () {
     return view('admin-edit');
 });
+Route::get('/pdf', function () {
+    return view('pdf');
+});
 
 
 Route::group(['middleware' => 'auth'], function () {
