@@ -1,104 +1,152 @@
-@extends('layouts.dashboard')
+@extends('layouts.admin')
+
+@section('main-content')
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-gray-800">{{ __('Dashboard') }}</h1>
+
+    @if (session('success'))
+        <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
+    @if (session('status'))
+        <div class="alert alert-success border-left-success" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif
+
+    <div class="row">
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
+                            {{-- <div class="h5 mb-0 font-weight-bold text-gray-800">₱ {{ $earnings_monthly }}</div> --}}
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fas fa-money-bill-alt	 fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
-@section('dashboard-content')
-<div class="container-fluid">
-
-  <!-- Page Heading -->
-  <div class="d-sm-flex align-items-center justify-content-between mb-4">
-      <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-      <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                      class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
-  </div>
-
-  <!-- Content Row -->
-  <div class="row">
-
-      <!-- Earnings (Monthly) Card Example -->
-      <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card border-left-primary shadow h-100 py-2">
-              <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                      <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                              Admin</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800"> {{ $admin }}
-                          </div>
-
-                      </div>
-                      <div class="col-auto">
-                          <i class="fa fa-user fa-2x text-gray-300"></i>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
+       
 
 
-      <!-- Earnings (Monthly) Card Example -->
-      <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card border-left-info shadow h-100 py-2">
-              <!-- <div class="card border-left-success shadow h-100 py-2"> -->
-              <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                      <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Users
-                          </div>
-                          <div class="row no-gutters align-items-center">
-                              <div class="col-auto">
-                                  <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $user }}</div>
-                              </div>
-                              <div class="col">
+        
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings (Annual)</div>
+                            {{-- <div class="h5 mb-0 font-weight-bold text-gray-800">₱ {{ $earnings_yearly }}</div> --}}
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fas fa-money-bill fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-auto">
-                          <i class="fa fa-users fa-2x text-gray-300"></i>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
+         <!-- Earnings (Monthly) Card Example -->
+         <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Water Consumption(Monthly)</div>
+                            {{-- <div class="h5 mb-0 font-weight-bold text-gray-800">₱ {{ $earnings_monthly }}</div> --}}
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fas fa-money-bill-alt	 fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+           <!-- Earnings (Monthly) Card Example -->
+           <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Water Consumption (Yearly)</div>
+                            {{-- <div class="h5 mb-0 font-weight-bold text-gray-800">₱ {{ $earnings_monthly }}</div> --}}
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fas fa-money-bill-alt	 fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
-      <!-- Earnings (Monthly) Card Example -->
-      <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card border-left-success shadow h-100 py-2">
-              <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                      <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                              Earnings (Monthly)</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800">₱100,000</div>
-                      </div>
-                      <div class="col-auto">
-                          <i class="fas fa-money-bill-wave fa-2x text-gray-300"></i>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
+        <!-- Admin -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">{{ __('Admins') }}
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $admins }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
+        <!-- Users -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">{{ __('Clients') }}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $users }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-      <!-- Pending Requests Card Example -->
-      <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card border-left-warning shadow h-100 py-2">
-              <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                      <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                              Messages</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                      </div>
-                      <div class="col-auto">
-                          <i class="fas fa-comments fa-2x text-gray-300"></i>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
+    <div>
+        <!-- <div id='calendar'></div>
+    </div> -->
+
+    <!-- @push('scripts')
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth'
+                });
+                calendar.render();
+            });
+        </script>
+    @endpush -->
 @endsection

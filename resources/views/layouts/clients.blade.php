@@ -146,11 +146,6 @@
                             <label><h6>Meter Number</h6></label>
                             <input class="form-control" name="meter_number" placeholder="Meter Number" required>
                         </div>
-                        <div class="form-group ml-3">
-                            <label><h6>First Meter Reading</h6></label>
-                            <input class="form-control" name="first_meter_reading" placeholder="First Meter Reading" required>
-                        </div>
-
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Save changes</button>

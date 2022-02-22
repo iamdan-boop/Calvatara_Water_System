@@ -108,7 +108,7 @@
                 </th>
                 <th scope="col">
                     <p>Tools</p>
-                </th>`
+                </th>
             </tr>
         </thead>
         <tbody>
